@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Website",
+    "\\Website\\bin",
+    "\\Website\\obj"
   ],
+  "SelectedNode": "\\.gitattributes",
   "PreviewInSolutionExplorer": false
 }
