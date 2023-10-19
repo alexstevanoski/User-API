@@ -21,15 +21,21 @@ namespace UserAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            
+
             return Ok(persons);
         }
 
-        [HttpPost]
-        public IActionResult Post(JObject payload)
+        [HttpGet("{id}")]
+        public IActionResult GetPersonById(int id)
         {
+            var person = persons.FirstOrDefault(p => p.id == id);
 
-            return Ok(payload);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(person);
         }
     }
 }
