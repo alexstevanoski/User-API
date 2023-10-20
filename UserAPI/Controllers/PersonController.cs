@@ -12,11 +12,7 @@ namespace UserAPI.Controllers
     public class PersonController : ControllerBase
     {
 
-        private List<Person> persons = new List<Person>
-        {
-            new Person {name = "Alex", email = "Alex@mail.com", id = 1, password = "examplepassword1234" },
-            new Person {name = "Joel", email = "Joel@mail.com", id = 2, password = "joels-weak-password9070" }
-        };
+        private List<Person> persons = new List<Person> { new Person( "test", "testmail", 1, "testpass")};
 
         [HttpGet]
         public IActionResult Get()
@@ -28,14 +24,14 @@ namespace UserAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetPersonById(int id)
         {
-            var person = persons.FirstOrDefault(p => p.id == id);
+            var Person = persons.FirstOrDefault(p => p.id == id);
 
-            if (person == null)
+            if (Person == null)
             {
                 return NotFound();
             }
 
-            return Ok(person);
+            return Ok(Person);
         }
 
         // Post entries 
@@ -44,20 +40,18 @@ namespace UserAPI.Controllers
         {
             if (newPerson == null)
             {
-                return BadRequest("Invalid data"); // Return a bad request if the data is invalid
+                return BadRequest("Invalid data");
             }
 
-            // Generate a new unique ID (in a real application, you might use a database-generated ID)
-            int nextId = persons.Max(p => p.id) + 1;
+            // Generate a unique ID (replace with a more robust method in a production app)
+            int nextId = persons.Count + 1;
             newPerson.id = nextId;
 
-            // Add the new person to the list
             persons.Add(newPerson);
 
-            // Return a 201 Created response with the newly created person
             return CreatedAtAction("GetPersonById", new { id = newPerson.id }, newPerson);
         }
-        
+
         //Delete entries by id
         [HttpDelete("{id}")]
         public IActionResult DeletePerson(int id)
