@@ -38,7 +38,7 @@ namespace UserAPI.Controllers
             return Ok(person);
         }
 
-        // POST api/person
+        // Post entries 
         [HttpPost]
         public IActionResult CreatePerson([FromBody] Person newPerson)
         {
@@ -57,5 +57,22 @@ namespace UserAPI.Controllers
             // Return a 201 Created response with the newly created person
             return CreatedAtAction("GetPersonById", new { id = newPerson.id }, newPerson);
         }
-    }
+        
+        //Delete entries by id
+        [HttpDelete("{id}")]
+        public IActionResult DeletePerson(int id)
+        {
+            var personToDelete = persons.FirstOrDefault(p => p.id == id);
+
+            if (personToDelete == null)
+            {
+                return NotFound(); // Person with the specified Id was not found
+            }
+
+            // Remove the person from the list
+            persons.Remove(personToDelete);
+
+            return NoContent(); // Return a 204 No Content response
+        }
+    }   
 }
