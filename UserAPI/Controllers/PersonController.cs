@@ -37,5 +37,25 @@ namespace UserAPI.Controllers
 
             return Ok(person);
         }
+
+        // POST api/person
+        [HttpPost]
+        public IActionResult CreatePerson([FromBody] Person newPerson)
+        {
+            if (newPerson == null)
+            {
+                return BadRequest("Invalid data"); // Return a bad request if the data is invalid
+            }
+
+            // Generate a new unique ID (in a real application, you might use a database-generated ID)
+            int nextId = persons.Max(p => p.id) + 1;
+            newPerson.id = nextId;
+
+            // Add the new person to the list
+            persons.Add(newPerson);
+
+            // Return a 201 Created response with the newly created person
+            return CreatedAtAction("GetPersonById", new { id = newPerson.id }, newPerson);
+        }
     }
 }
