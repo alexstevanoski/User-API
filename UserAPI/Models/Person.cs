@@ -1,4 +1,4 @@
-﻿namespace UserAPI
+﻿namespace UserAPI.Models
 {
     public class Person
     {
@@ -13,12 +13,5 @@
 
         }
 
-        public Person(string name, string email, int id, string password)
-        {
-            this.name = name;
-            this.email = email;
-            this.id = id;
-            this.password = password;
-        }
     }
 }
