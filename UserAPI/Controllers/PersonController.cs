@@ -23,18 +23,18 @@ namespace UserAPI.Controllers
             return new JsonResult(result);
         }
 
-        //[HttpGet("{id}")]
-        //public IActionResult GetPersonById(int id)
-        //{
-        //    var Person = persons.FirstOrDefault(p => p.id == id);
-        //
-        //    if (Person == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //
-        //    return Ok(Person);
-        //}
+        [HttpGet("{id}")]
+        public JsonResult GetPersonById(int id)
+        {
+            var Person = _context.Persons.FirstOrDefault(p => p.id == id);
+        
+            if (Person == null)
+            {
+                return new JsonResult(404);
+            }
+        
+            return new JsonResult(Ok(Person));
+        }
 
         // Post entries 
         [HttpPost]
