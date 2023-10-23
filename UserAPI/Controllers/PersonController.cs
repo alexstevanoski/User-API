@@ -28,12 +28,12 @@ namespace UserAPI.Controllers
         public JsonResult GetPersonById(int id)
         {
             var Person = _context.Persons.FirstOrDefault(p => p.id == id);
-        
+
             if (Person == null)
             {
                 return new JsonResult(404);
             }
-        
+
             return new JsonResult(Ok(Person));
         }
 
@@ -65,17 +65,35 @@ namespace UserAPI.Controllers
         public JsonResult DeletePerson(int id)
         {
             var personToDelete = _context.Persons.FirstOrDefault(p => p.id == id);
-        
+
             if (personToDelete == null)
             {
                 return new JsonResult(404);// Person with the specified Id was not found
             };
-        
+
             // Remove the person from the list
             _context.Persons.Remove(personToDelete);
             _context.SaveChanges();
 
             return new JsonResult(204); // Return a 204 No Content response
+        }
+
+        [HttpPut("{id}")]
+        public JsonResult UpdatePerson(int id, Person updatedPerson)
+        {
+            var personToUpdate = _context.Persons.FirstOrDefault(p => p.id == id);
+
+            if (personToUpdate == null)
+            {
+                return new JsonResult(404);
+            };
+
+            personToUpdate.name = updatedPerson.name;
+            personToUpdate.email = updatedPerson.email;
+            personToUpdate.password = updatedPerson.password;
+            _context.SaveChanges();
+
+            return new JsonResult(200);
         }
     }   
 }
