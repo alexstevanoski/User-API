@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using UserAPI.Models;
 using UserAPI.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace UserAPI.Controllers
 {
@@ -40,7 +41,6 @@ namespace UserAPI.Controllers
         [HttpPost]
         public JsonResult CreatePerson(Person person)
         {
-            
             if (person.id == 0)
             {
                 _context.Persons.Add(person);
@@ -56,28 +56,26 @@ namespace UserAPI.Controllers
                     _context.SaveChanges();
                     return new JsonResult(Ok(person));
                 }
-
                 return new JsonResult(409);
             }
-            
-
         }
 
         //Delete entries by id
-        //[HttpDelete("{id}")]
-        //public IActionResult DeletePerson(int id)
-        //{
-        //    var personToDelete = persons.FirstOrDefault(p => p.id == id);
-        //
-        //    if (personToDelete == null)
-        //    {
-        //        return NotFound(); // Person with the specified Id was not found
-        //    }
-        //
-        //    // Remove the person from the list
-        //    persons.Remove(personToDelete);
-        //
-        //    return NoContent(); // Return a 204 No Content response
-        //}
+        [HttpDelete("{id}")]
+        public JsonResult DeletePerson(int id)
+        {
+            var personToDelete = _context.Persons.FirstOrDefault(p => p.id == id);
+        
+            if (personToDelete == null)
+            {
+                return new JsonResult(404);// Person with the specified Id was not found
+            };
+        
+            // Remove the person from the list
+            _context.Persons.Remove(personToDelete);
+            _context.SaveChanges();
+
+            return new JsonResult(204); // Return a 204 No Content response
+        }
     }   
 }
