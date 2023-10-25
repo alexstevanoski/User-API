@@ -60,6 +60,24 @@ namespace UserAPI.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public JsonResult UpdatePerson(int id, Person updatedPerson)
+        {
+            var personToUpdate = _context.Persons.FirstOrDefault(p => p.id == id);
+
+            if (personToUpdate == null)
+            {
+                return new JsonResult(404);
+            };
+
+            personToUpdate.name = updatedPerson.name;
+            personToUpdate.email = updatedPerson.email;
+            personToUpdate.password = updatedPerson.password;
+            _context.SaveChanges();
+
+            return new JsonResult(200);
+        }
+
         //Delete entries by id
         [HttpDelete("{id}")]
         public JsonResult DeletePerson(int id)
@@ -78,22 +96,6 @@ namespace UserAPI.Controllers
             return new JsonResult(204); // Return a 204 No Content response
         }
 
-        [HttpPut("{id}")]
-        public JsonResult UpdatePerson(int id, Person updatedPerson)
-        {
-            var personToUpdate = _context.Persons.FirstOrDefault(p => p.id == id);
-
-            if (personToUpdate == null)
-            {
-                return new JsonResult(404);
-            };
-
-            personToUpdate.name = updatedPerson.name;
-            personToUpdate.email = updatedPerson.email;
-            personToUpdate.password = updatedPerson.password;
-            _context.SaveChanges();
-
-            return new JsonResult(200);
-        }
+        
     }   
 }
