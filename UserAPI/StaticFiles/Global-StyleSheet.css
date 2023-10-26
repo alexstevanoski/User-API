@@ -1,0 +1,48 @@
+﻿:root {
+    --text: #0b1d17;
+    --background: #fbfefd;
+    --primary: #296a54;
+    --secondary: #b9e4d5;
+    --accent: #3b9776;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Lato&display=swap');
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+}
+
+html {
+    font-size: 100%;
+}
+/* 16px */
+
+h1 {
+    font-size: 5.652rem; /* 90.4px */
+}
+
+h2 {
+    font-size: 3.997rem; /* 64px */
+}
+
+h3 {
+    font-size: 2.827rem; /* 45.28px */
+}
+
+h4 {
+    font-size: 1.999rem; /* 32px */
+}
+
+h5 {
+    font-size: 1.414rem; /* 22.56px */
+}
+
+small {
+    font-size: 0.707rem; /* 11.36px */
+}
