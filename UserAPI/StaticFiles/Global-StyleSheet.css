@@ -1,12 +1,12 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Lato&display=swap');
+
+:root {
     --text: #0b1d17;
     --background: #fbfefd;
     --primary: #296a54;
     --secondary: #b9e4d5;
     --accent: #3b9776;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Lato&display=swap');
 
 p {
     font-family: 'Lato', sans-serif;
