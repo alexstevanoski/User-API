@@ -18,6 +18,12 @@ h1, h2, h3, h4, h5 {
     font-weight: 700;
 }
 
+li {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 2.827rem; /* 45.28px */
+}
+
 html {
     font-size: 100%;
 }
