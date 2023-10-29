@@ -1,15 +1,9 @@
-﻿:root {
-    --text: #0b1d17;
-    --background: #fbfefd;
-    --primary: #296a54;
-    --secondary: #b9e4d5;
-    --accent: #3b9776;
-}
-
+﻿
 body {
     margin: 0;
     display: grid;
     height: 100vh;
+    background-color: var(--background);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
