@@ -15,16 +15,6 @@ ul {
         text-align: center;
     }
 
-label {
-    height: 100vh;
-    cursor: pointer;
-}
-
-input {
-    position: absolute;
-    scale: 0;
-}
-
 body.open .burger {
     background-image: url("close.svg");
 }

@@ -3,14 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <title>User Registration</title>
-    <link rel="stylesheet" href="Home-StyleSheet.css" />
-    <link rel="stylesheet" href="Global-StyleSheet.css" />
     <link rel="stylesheet" href="Menu.css" />
+    <link rel="stylesheet" href="Global-StyleSheet.css" />
+    <link rel="stylesheet" href="Home-StyleSheet.css" />
 </head>
 <body>
     <button class="burger" onclick="toggleMenu()"></button>
     <div class="Landing" id="landing">
         <h1 class="Landing-text" id="landing-welcome">WELCOME, ALEX</h1>
+        <form id="form1">
+            <label for="formname">Name: </label>
+            <input autofocus autocomplete="on" formid="form" class="text-field" id="formname" name="name" type="text" /><br />
+            <label for="formemail">Email: </label>
+            <input autocomplete="on" formid="form" class="text-field" id="formemail" name="email" type="text" /><br />
+            <label for="formid">Id: </label>
+            <input autocomplete="on" formid="form" class="text-field" id="formid" name="id" type="number" /><br />
+            <label for="formpassword">Password: </label>
+            <input autocomplete="on" formid="form" class="text-field" id="formpassword" name="password" type="password" /><br />
+            <button formenctype="application/x-www-form-urlencoded" type="submit">Submit</button>
+        </form>
+
+
+        <!--Menu-->
         <div class="menu">
             <div></div>
             <div style="transition-delay: 0.1s"></div>
@@ -33,6 +47,7 @@
             </ul>
         </div>
     </div>
+    <script src="CreateUser.js"></script>
     <script type="text/javascript">
         const toggleMenu = () => document.body.classList.toggle("open");
     </script>
