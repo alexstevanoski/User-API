@@ -11,24 +11,31 @@
     <button class="burger" onclick="toggleMenu()"></button>
     <div class="Landing" id="landing">
         <h1 class="Landing-text" id="landing-welcome">WELCOME</h1>
-        <form id="form1">
-            <label>
-                <span>Name</span>
-                <input name="name" value="Your name" />
-            </label>
-            <label>
-                <span>Email</span>
-                <input name="email" type="email" value="Your email" />
-            </label>
-            <label>
-                <span>Id</span>
-                <input name="id" type="number" value=0 />
-            </label>
-            <label>
-                <span>Password</span>
-                <input name="password" value="Your Password" />
-            </label>
-            <button type="submit" id="submitnew">Submit</button>
+        <form id="form1" class="modal-content animate">
+
+            <div class="imgcontainerregister">
+                <span id="close-register" class="close" title="Close Modal">&times;</span>
+                <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Email</b></label>
+                <input id="new-user-email" type="text" placeholder="Create Email" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id="new-user-password" type="password" placeholder="Create Password" name="psw" required>
+
+                <label for="repeatpsw"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="repeatpsw" required>
+
+                <button type="submit" id="submit-new-user">Register</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button id="cancel02" type="button" class="cancelbtn" style="margin-left: auto; margin-right: auto;">Cancel</button>
+            </div>
         </form>
 
 
