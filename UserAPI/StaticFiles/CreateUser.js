@@ -1,30 +1,28 @@
-﻿addEventListener('DOMContentLoaded', onloadCb);
+﻿addEventListener('DOMContentLoaded', CreateUser());
 
-function onloadCb() {
-    const forms = document.querySelectorAll('form[method]');
+function CreateUser() {
+    const apiUrl = 'https://localhost:7006/api/Person/CreatePerson';
+    const form = document.getElementById('form1');
 
-    forms.forEach(function (form) {
-        form.addEventListener('submit', displayInfo);
-    });
-};
+    const data = {
+        name: name,
+        email: email,
+        password: password,
+    };
 
-function displayInfo(event) {
-    event.preventDefault()
-
-    const formData = new FormData(event.target);
-
-    logAsTitle('Data:');
-    for (let [key, val] of formData.entries()) {
-        console.log(`${key} \t ${val || '<Empty>'}`);
-    }
-
-    logAsTitle('Form attributes');
-    const neededAttributes = ['action', 'method', 'enctype'];
-    for (let attr of neededAttributes) {
-        console.log(`${attr} - ${event.target[[attr]] || '<empty>'}`);
-    }
-}
-function logAsTitle(str) {
-    console.log('\n' + str);
-    console.log('='.repeat(str.length));
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            SuccessfulUserCreation();
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }

@@ -11,7 +11,7 @@
     <button class="burger" onclick="toggleMenu()"></button>
     <div class="Landing" id="landing">
         <h1 class="Landing-text" id="landing-welcome">WELCOME</h1>
-        <form id="form1" action="https://localhost:7006/api/Person/CreatePerson" method="post">
+        <form id="form1">
             <label>
                 <span>Name</span>
                 <input name="name" value="Your name" />
@@ -28,7 +28,7 @@
                 <span>Password</span>
                 <input name="password" value="Your Password" />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitnew">Submit</button>
         </form>
 
 
@@ -55,9 +55,40 @@
             </ul>
         </div>
     </div>
-    <script src="CreateUser.js"></script>
-    <script type="text/javascript">
-        const toggleMenu = () => document.body.classList.toggle("open");
+    <script>
+        //const toggleMenu = () => document.body.classList.toggle("open");
+
+        document.getElementById('submitnew').addEventListener('submit', function (e) {
+            e.preventDefault();
+            CreateUser();
+        });
+
+        function CreateUser() {
+            const apiUrl = 'https://localhost:7006/api/Person/CreatePerson';
+            const form = document.getElementById('form1');
+
+            const data = {
+                name: name,
+                email: email,
+                password: password,
+            };
+        
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    SuccessfulUserCreation();
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
     </script>
 </body>
 </html>
