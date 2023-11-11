@@ -21,4 +21,8 @@
     <Folder Include="StaticFiles\JS\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="C:\Users\alexa\OneDrive\Desktop\nigga.html" Link="nigga.html" />
+  </ItemGroup>
+
 </Project>
