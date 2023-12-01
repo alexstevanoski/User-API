@@ -74,3 +74,16 @@ C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\run
 C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\AWSSDK.Core.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\AWSSDK.SecurityToken.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\DnsClient.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\MongoDB.Bson.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\MongoDB.Driver.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\MongoDB.Driver.Core.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\MongoDB.Libmongocrypt.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\SharpCompress.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\Snappier.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\ZstdSharp.dll
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\alexa\source\repos\alexstevanoski\User-API\UserAPI\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
