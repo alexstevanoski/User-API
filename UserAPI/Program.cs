@@ -10,28 +10,26 @@ using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile("appsettings.json");
-builder.Configuration.AddEnvironmentVariables();
-
 // Add services to the container.
 
 builder.Configuration.AddJsonFile("appsettings.json");
 builder.Configuration.AddEnvironmentVariables();
 
-var mongoDbSettings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+
+var mongoDbSettings = builder.Configuration.GetSection(nameof(mongoDbSettingsCS)).Get<mongoDbSettingsCS>();
 Console.WriteLine($"ConnectionString: {mongoDbSettings?.ConnectionString}");
 Console.WriteLine($"DatabaseName: {mongoDbSettings?.DatabaseName}");
 
-builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection(nameof(MongoDbSettings)));
+builder.Services.Configure<mongoDbSettingsCS>(builder.Configuration.GetSection(nameof(mongoDbSettings)));
 builder.Services.AddSingleton<IMongoClient>(sp =>
 {
-    var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
+    var settings = sp.GetRequiredService<IOptions<mongoDbSettingsCS>>().Value;
     return new MongoClient(settings.ConnectionString);
 });
 builder.Services.AddScoped<IMongoDatabase>(sp =>
 {
     var client = sp.GetRequiredService<IMongoClient>();
-    var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
+    var settings = sp.GetRequiredService<IOptions<mongoDbSettingsCS>>().Value;
     return client.GetDatabase(settings.DatabaseName);
 });
 

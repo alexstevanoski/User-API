@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using UserAPI.Models;
+using MongoDB.Driver;
 
 namespace UserAPI.DataContext;
 
@@ -10,7 +11,7 @@ public class MongoDbContext : DbContext
 
     public MongoDbContext(IConfiguration configuration)
     {
-        var client = new MongoClient(configuration.GetConnectionString("localhost:27017"));
+        var client = new MongoClient(configuration.GetConnectionString("mongodb://localhost:27017"));
         _database = client.GetDatabase("UserAPI");
     }
 
